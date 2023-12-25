@@ -10,6 +10,7 @@ type GameGridProps = {
 
 const GameGrid = ({ gameQuery }: GameGridProps) => {
   const { data: games, error, isLoading } = useGames(gameQuery)
+
   if (isLoading) {
     return (
       <SimpleGrid

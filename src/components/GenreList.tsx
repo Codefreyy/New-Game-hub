@@ -9,10 +9,14 @@ import {
   SkeletonText,
   Spinner,
 } from "@chakra-ui/react"
-import useGenres from "../hooks/useGenres"
+import useGenres, { Genre } from "../hooks/useGenres"
 import getCroppedImageUrl from "../services/getCroppedImageUrl"
 
-const GenreList = () => {
+type GenreListProps = {
+  onSelectedGenre: (genre: Genre) => void
+}
+
+const GenreList = ({ onSelectedGenre }: GenreListProps) => {
   const { data: genres, isLoading } = useGenres()
   if (isLoading)
     return (
@@ -42,6 +46,9 @@ const GenreList = () => {
                   fontSize="lg"
                   whiteSpace="normal"
                   textAlign="left"
+                  onClick={() => {
+                    onSelectedGenre(genre)
+                  }}
                 >
                   {" "}
                   {genre.name}

@@ -23,6 +23,7 @@ export interface Genre {
 }
 
 const useGames = (gameQuery: GameQuery) => {
+    console.log(gameQuery, 1)
     return useData<Game>(
         "/games",
         {
