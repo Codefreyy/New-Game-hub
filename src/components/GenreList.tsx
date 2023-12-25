@@ -7,6 +7,7 @@ import {
   ListItem,
   Skeleton,
   SkeletonText,
+  Spinner,
 } from "@chakra-ui/react"
 import useGenres from "../hooks/useGenres"
 import getCroppedImageUrl from "../services/getCroppedImageUrl"
@@ -15,11 +16,9 @@ const GenreList = () => {
   const { data: genres, isLoading } = useGenres()
   if (isLoading)
     return (
-      <>
-        <Skeleton height="750px">
-          <SkeletonText></SkeletonText>
-        </Skeleton>
-      </>
+      <div>
+        <Spinner />
+      </div>
     )
   return (
     <>
