@@ -23,11 +23,16 @@ const PlatformList = ({
         {selectedPlatform ? selectedPlatform.name : "Platform"}
       </MenuButton>
       <MenuList>
-        {platforms?.map((platform) => (
+        {platforms?.map((platform, idx) => (
           <MenuItem
             key={platform.id}
             onClick={() => onSelectedPlatform(platform)}
-            background={selectedPlatform.id == platform.id ? "#2d2d2d" : ""}
+            backgroundColor={
+              selectedPlatform?.id == platform.id ||
+              (selectedPlatform == null && idx == 0)
+                ? "#2d2d2d"
+                : ""
+            }
           >
             {platform.name}
           </MenuItem>
