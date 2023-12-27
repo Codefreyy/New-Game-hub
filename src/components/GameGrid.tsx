@@ -1,6 +1,6 @@
+import { Box, SimpleGrid } from "@chakra-ui/react"
 import { GameQuery } from "../App"
 import useGames, { Game } from "../hooks/useGames"
-import { Box, SimpleGrid } from "@chakra-ui/react"
 import GameCard from "./GameCard"
 import GameCardSkeleton from "./GameCardSkeleton"
 
