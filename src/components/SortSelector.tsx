@@ -26,7 +26,9 @@ const SortSelector = ({
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {currentSortOrder ? currentSortOrder?.label : "Sort By"}
+        {`Sort by: ${
+          currentSortOrder ? currentSortOrder?.label : sortOrders[0].label
+        }`}
       </MenuButton>
       <MenuList>
         {sortOrders.map((order, idx) => (
