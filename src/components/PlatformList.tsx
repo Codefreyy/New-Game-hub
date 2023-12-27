@@ -20,7 +20,7 @@ const PlatformList = ({
         rightIcon={<BsChevronDown />}
         disabled={isLoading}
       >
-        {selectedPlatform ? selectedPlatform.name : "Platform"}
+        {selectedPlatform ? selectedPlatform.name : platforms[0]?.name}
       </MenuButton>
       <MenuList>
         {platforms?.map((platform, idx) => (
