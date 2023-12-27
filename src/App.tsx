@@ -3,6 +3,7 @@ import { useState } from "react"
 import GameGrid from "./components/GameGrid"
 import GenreList from "./components/GenreList"
 import NavBar from "./components/NavBar"
+import PlatformList from "./components/PlatformList"
 import { Genre, Platform } from "./hooks/useGames"
 
 export type GameQuery = {
@@ -45,6 +46,7 @@ function App() {
           </GridItem>
         </Show>
         <GridItem area="main">
+          <PlatformList />
           <GameGrid gameQuery={gameQuery} />
         </GridItem>
       </Grid>
