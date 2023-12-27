@@ -5,7 +5,7 @@ import usePlatforms from "../hooks/usePlatforms"
 
 type PlatformProps = {
   onSelectedPlatform: (platform: Platform) => void
-  selectedPlatform: Platform
+  selectedPlatform: Platform | null
 }
 
 const PlatformList = ({
