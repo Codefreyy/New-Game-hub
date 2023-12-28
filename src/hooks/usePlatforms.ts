@@ -1,16 +1,24 @@
-import useData from "./useData";
+import ms from "ms";
+import { useQuery } from "react-query";
+import platforms from "../data/platforms";
+import APIClient from "../services/apiClient";
 
-interface Platform {
+export type Platform = {
     id: number;
     name: string;
     slug: string;
 }
 
+const apiClient = new APIClient<Platform>('/platforms/lists/parents')
 
 const usePlatforms = () => {
-    return useData<Platform>(
-        "/platforms/lists/parents"
-    )
+    return useQuery({
+        queryKey: ['platforms'],
+        queryFn: apiClient.getAll,
+        staleTime: ms('24h'),
+        initialData: platforms
+    })
+
 }
 
 export default usePlatforms;

@@ -32,7 +32,7 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
       padding="10px"
       spacing={6}
     >
-      {games.map((game: Game, idx) => (
+      {games?.results.map((game: Game, idx) => (
         <Box key={idx}>
           <GameCard game={game} />
         </Box>

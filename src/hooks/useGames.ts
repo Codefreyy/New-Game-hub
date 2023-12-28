@@ -1,5 +1,10 @@
+import { useQuery } from "react-query";
 import { GameQuery } from "../App";
-import useData from "./useData";
+import APIClient from "../services/apiClient";
+import { Genre } from "./useGenres";
+import { Platform } from "./usePlatforms";
+
+const apiCient = new APIClient<Game>('/games')
 
 export type Game = {
     id: number;
@@ -11,31 +16,18 @@ export type Game = {
     rating_top: number;
 }
 
-export type Platform = {
-    id: number;
-    name: string;
-    slug: string;
-}
-export interface Genre {
-    id: number;
-    name: string;
-    image_background: string;
-}
-
 const useGames = (gameQuery: GameQuery) => {
-    console.log('game', gameQuery)
-    return useData<Game>(
-        "/games",
-        {
+    return useQuery({
+        queryKey: ['games', gameQuery],
+        queryFn: () => apiCient.getAll({
             params: {
-                genres: gameQuery?.genre?.id,
-                parent_platforms: gameQuery?.platform?.id,
-                ordering: gameQuery?.sortOrder,
-                search: gameQuery?.searchText,
+                genres: gameQuery.genre?.id,
+                parent_platforms: gameQuery.platform?.id,
+                ordering: gameQuery.sortOrder,
+                search: gameQuery.searchText,
             }
-        },
-        [gameQuery]
-    )
+        }),
+    })
 }
 
 export default useGames;
