@@ -12,7 +12,7 @@ import { BsArrowUp } from "react-icons/bs"
 import GameGrid from "./components/GameGrid"
 import GenreList from "./components/GenreList"
 import NavBar from "./components/NavBar"
-import PageHeading from "./components/PageHeading"
+import GameHeading from "./components/GameHeading"
 import PlatformList from "./components/PlatformList"
 import SortSelector from "./components/SortSelector"
 import { Platform } from "./hooks/usePlatforms"
@@ -79,7 +79,7 @@ function App() {
         </Show>
         <GridItem area="main">
           <Flex flexDirection="column" marginLeft={3}>
-            <PageHeading gameQuery={gameQuery} />
+            <GameHeading gameQuery={gameQuery} />
             <HStack gap={4} marginBottom={2}>
               <PlatformList
                 onSelectedPlatform={(platform: Platform) =>
