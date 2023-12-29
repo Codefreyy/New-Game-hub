@@ -1,5 +1,14 @@
-import { Flex, Grid, GridItem, HStack, Show } from "@chakra-ui/react"
-import { useState } from "react"
+import {
+  Box,
+  Button,
+  Flex,
+  Grid,
+  GridItem,
+  HStack,
+  Show,
+} from "@chakra-ui/react"
+import { useEffect, useState } from "react"
+import { BsArrowUp } from "react-icons/bs"
 import GameGrid from "./components/GameGrid"
 import GenreList from "./components/GenreList"
 import NavBar from "./components/NavBar"
@@ -18,6 +27,27 @@ export type GameQuery = {
 
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
+  const [isBackToTopVisible, setIsBackToTopVisible] = useState(false)
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }
+
+  useEffect(() => {
+    const toggoleVisibility = () => {
+      if (window.scrollY > 500) {
+        setIsBackToTopVisible(true)
+      } else {
+        setIsBackToTopVisible(false)
+      }
+    }
+
+    window.addEventListener("scroll", toggoleVisibility)
+    return () => window.removeEventListener("scroll", toggoleVisibility)
+  })
 
   return (
     <>
@@ -67,6 +97,24 @@ function App() {
             </HStack>
           </Flex>
           <GameGrid gameQuery={gameQuery} />
+          {isBackToTopVisible && (
+            <Box
+              onClick={scrollToTop}
+              position="fixed"
+              bottom="30px"
+              right="30px"
+              zIndex={3}
+            >
+              <Button
+                size={"sm"}
+                rightIcon={<BsArrowUp />}
+                variant="outline"
+                colorScheme="teal"
+              >
+                Scroll To Top
+              </Button>
+            </Box>
+          )}
         </GridItem>
       </Grid>
     </>
