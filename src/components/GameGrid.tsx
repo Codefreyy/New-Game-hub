@@ -1,4 +1,4 @@
-import { Box, Button, SimpleGrid, Spinner } from "@chakra-ui/react"
+import { Box, SimpleGrid, Spinner } from "@chakra-ui/react"
 import React from "react"
 import InfiniteScroll from "react-infinite-scroll-component"
 import { GameQuery } from "../App"

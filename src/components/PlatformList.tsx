@@ -4,7 +4,7 @@ import usePlatforms, { Platform } from "../hooks/usePlatforms"
 
 type PlatformProps = {
   onSelectedPlatform: (platform: Platform) => void
-  selectedPlatform: Platform | null
+  selectedPlatform?: Platform
 }
 
 const PlatformList = ({
@@ -28,7 +28,7 @@ const PlatformList = ({
             onClick={() => onSelectedPlatform(platform)}
             backgroundColor={
               selectedPlatform?.id == platform.id ||
-              (selectedPlatform == null && idx == 0)
+              (selectedPlatform?.id == null && idx == 0)
                 ? "#2d2d2d"
                 : ""
             }

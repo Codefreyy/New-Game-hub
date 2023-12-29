@@ -7,15 +7,15 @@ import {
   ListItem,
   Spinner,
 } from "@chakra-ui/react"
-import useGenres, { Genre } from "../hooks/useGenres"
+import useGenres from "../hooks/useGenres"
 import getCroppedImageUrl from "../services/getCroppedImageUrl"
 
 type GenreListProps = {
-  onSelectedGenre: (genre: Genre) => void
-  selectedGenre: Genre | null
+  onSelectedGenre: (genreId: number) => void
+  selectedGenreId?: number
 }
 
-const GenreList = ({ onSelectedGenre, selectedGenre }: GenreListProps) => {
+const GenreList = ({ onSelectedGenre, selectedGenreId }: GenreListProps) => {
   const { data: genres, isLoading } = useGenres()
   if (isLoading)
     return (
@@ -46,17 +46,17 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: GenreListProps) => {
                   whiteSpace="normal"
                   textAlign="left"
                   onClick={() => {
-                    onSelectedGenre(genre)
+                    onSelectedGenre(genre.id)
                   }}
                   style={{
                     fontWeight:
-                      (selectedGenre == null && idx == 0) ||
-                      genre.id == selectedGenre?.id
+                      (selectedGenreId == null && idx == 0) ||
+                      genre.id == selectedGenreId
                         ? "bold"
                         : "normal",
                     textDecoration:
-                      (selectedGenre == null && idx == 0) ||
-                      genre.id == selectedGenre?.id
+                      (selectedGenreId == null && idx == 0) ||
+                      genre.id == selectedGenreId
                         ? "underline"
                         : "none",
                   }}
