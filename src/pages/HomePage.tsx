@@ -9,13 +9,12 @@ import {
 } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { BsArrowUp } from "react-icons/bs"
-import GameGrid from "./components/GameGrid"
-import GameHeading from "./components/GameHeading"
-import GenreList from "./components/GenreList"
-import NavBar from "./components/NavBar"
-import PlatformList from "./components/PlatformList"
-import SortSelector from "./components/SortSelector"
-import { Platform } from "./hooks/usePlatforms"
+import GameGrid from "../components/GameGrid"
+import GameHeading from "../components/GameHeading"
+import GenreList from "../components/GenreList"
+import PlatformList from "../components/PlatformList"
+import SortSelector from "../components/SortSelector"
+import { Platform } from "../hooks/usePlatforms"
 
 export type GameQuery = {
   genreId?: number
@@ -24,7 +23,7 @@ export type GameQuery = {
   searchText: string
 }
 
-function App() {
+function HomePage() {
   const [isBackToTopVisible, setIsBackToTopVisible] = useState(false)
 
   function scrollToTop() {
@@ -59,9 +58,6 @@ function App() {
           lg: "250px 1fr",
         }}
       >
-        <GridItem area="nav">
-          <NavBar />
-        </GridItem>
         <Show above="lg">
           <GridItem area="aside" paddingX={5}>
             <GenreList />
@@ -100,4 +96,4 @@ function App() {
   )
 }
 
-export default App
+export default HomePage

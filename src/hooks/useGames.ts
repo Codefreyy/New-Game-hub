@@ -19,7 +19,6 @@ export type Game = {
 
 const useGames = () => {
     const gameQuery = useGameQueryStore(s => s.gameQuery)
-    console.log('gamequery', gameQuery)
     return useInfiniteQuery<FetchResponse<Game>>({
         queryKey: ['games', gameQuery],
         queryFn: ({ pageParam = 1 }) => apiCient.getAll({

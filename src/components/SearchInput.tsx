@@ -11,6 +11,7 @@ const SearchInput = () => {
   //     searchRef.current.value = ""
   //   }
   // }
+  // todo: should clear searchInput after selecting genre, platform
   const setSearchText = useGameQueryStore((s) => s.setSearchText)
   return (
     <form
