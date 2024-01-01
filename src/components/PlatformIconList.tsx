@@ -11,12 +11,9 @@ import { MdPhoneIphone } from "react-icons/md"
 import { BsGlobe } from "react-icons/bs"
 import { SiNintendo } from "react-icons/si"
 import { IconType } from "react-icons/lib"
-import { Platform } from "../hooks/usePlatforms"
+import { Platform } from "../entities"
 
-interface Props {
-  platforms: Platform[]
-}
-const PlatformIconList = ({ platforms }: Props) => {
+const PlatformIconList = ({ platforms }: { platforms: Platform[] }) => {
   const iconMap: { [key: string]: IconType } = {
     pc: FaWindows,
     playstation: FaPlaystation,

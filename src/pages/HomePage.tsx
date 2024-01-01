@@ -14,7 +14,7 @@ import GameHeading from "../components/GameHeading"
 import GenreList from "../components/GenreList"
 import PlatformList from "../components/PlatformList"
 import SortSelector from "../components/SortSelector"
-import { Platform } from "../hooks/usePlatforms"
+import { Platform } from "../entities"
 
 export type GameQuery = {
   genreId?: number
