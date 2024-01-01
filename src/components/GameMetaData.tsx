@@ -12,7 +12,7 @@ const GameMetaData = ({ game }: { game: Game }) => {
       <MetaItem term="Platforms">
         <PlatformIconList platforms={platformList} />
         {game.parent_platforms?.map(({ platform }, idx) => (
-          <span key={platform.id}>
+          <span key={platform.id} style={{ color: "#aaa" }}>
             {idx != 0 ? " | " : ""} {platform.name}
           </span>
         ))}
@@ -22,12 +22,16 @@ const GameMetaData = ({ game }: { game: Game }) => {
       </MetaItem>
       <MetaItem term="Genres">
         {game.genres.map((genre) => (
-          <Text key={genre.id}>{genre.name}</Text>
+          <Text key={genre.id} color="#aaa">
+            {genre.name}
+          </Text>
         ))}
       </MetaItem>
       <MetaItem term="Publishers">
         {game.publishers?.map((publisher) => (
-          <Text key={publisher.id}>{publisher.name}</Text>
+          <Text key={publisher.id} color="#aaa">
+            {publisher.name}
+          </Text>
         ))}
       </MetaItem>
     </SimpleGrid>

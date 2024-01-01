@@ -10,12 +10,12 @@ const ExpandableText = ({ children }: { children: string }) => {
   if (children.length <= limit) return <Text>{children}</Text>
   const visibleText = isExpand ? children : `${children.substring(0, limit)}...`
   return (
-    <Text>
+    <Text color="#aaa">
       {visibleText}
       <Button
         size="xs"
         variant="outline"
-        colorScheme="whatsapp"
+        colorScheme="gray"
         onClick={() => setIsExpand((s) => !s)}
       >
         {isExpand ? "Show Less" : "Show More"}

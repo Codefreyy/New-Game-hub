@@ -14,8 +14,8 @@ const GameScreenshots = ({ gameId }: Props) => {
 
   return (
     <>
-      <Heading size="lg" marginBottom={2}>
-        Game Screenshots
+      <Heading size="lg" marginBottom={3}>
+        Screenshots
       </Heading>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={2}>
         {data?.results.map((file) => (
