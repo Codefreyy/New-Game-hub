@@ -10,5 +10,12 @@ export type Game = {
     metacritic: number;
     genres: Genre[];
     rating_top: number;
-    description_raw: string
+    description_raw: string;
+    publishers: Publisher[]
+}
+
+
+type Publisher = {
+    id: number
+    name: string
 }
