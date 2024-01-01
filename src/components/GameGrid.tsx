@@ -37,7 +37,15 @@ const GameGrid = () => {
         {data?.pages.map((page, index) => (
           <React.Fragment key={index}>
             {page.results.map((game) => (
-              <Box key={game.id}>
+              <Box
+                key={game.id}
+                _hover={{
+                  transform: "scale(1.03)",
+                  transition: "transform .15s ease-in",
+                }}
+                borderRadius={10}
+                overflow="hidden"
+              >
                 <GameCard game={game} />
               </Box>
             ))}

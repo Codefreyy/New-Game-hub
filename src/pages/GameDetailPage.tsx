@@ -5,7 +5,7 @@ import useGame from "../hooks/useGame"
 const GameDetailPage = () => {
   const { id } = useParams()
   console.log(useParams())
-  const { data: game, isLoading, error } = useGame(id!)
+  const { data: game, isLoading, error } = useGame(Number(id)!)
 
   if (isLoading) return <Spinner />
   if (error || !game) throw error
