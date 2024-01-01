@@ -10,9 +10,9 @@ import {
 import { useEffect, useState } from "react"
 import { BsArrowUp } from "react-icons/bs"
 import GameGrid from "./components/GameGrid"
+import GameHeading from "./components/GameHeading"
 import GenreList from "./components/GenreList"
 import NavBar from "./components/NavBar"
-import GameHeading from "./components/GameHeading"
 import PlatformList from "./components/PlatformList"
 import SortSelector from "./components/SortSelector"
 import { Platform } from "./hooks/usePlatforms"
@@ -25,7 +25,6 @@ export type GameQuery = {
 }
 
 function App() {
-  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
   const [isBackToTopVisible, setIsBackToTopVisible] = useState(false)
 
   function scrollToTop() {
@@ -61,41 +60,22 @@ function App() {
         }}
       >
         <GridItem area="nav">
-          <NavBar
-            onSearch={(searchText) =>
-              setGameQuery({ ...gameQuery, searchText })
-            }
-          />
+          <NavBar />
         </GridItem>
         <Show above="lg">
           <GridItem area="aside" paddingX={5}>
-            <GenreList
-              selectedGenreId={gameQuery.genreId}
-              onSelectedGenre={(genreId) =>
-                setGameQuery({ ...gameQuery, genreId })
-              }
-            />
+            <GenreList />
           </GridItem>
         </Show>
         <GridItem area="main">
           <Flex flexDirection="column" marginLeft={3}>
-            <GameHeading gameQuery={gameQuery} />
+            <GameHeading />
             <HStack gap={4} marginBottom={2}>
-              <PlatformList
-                onSelectedPlatform={(platform: Platform) =>
-                  setGameQuery({ ...gameQuery, platform })
-                }
-                selectedPlatform={gameQuery.platform}
-              />
-              <SortSelector
-                selectedSortOrder={gameQuery.sortOrder}
-                setSelectedSortOrder={(order: string) =>
-                  setGameQuery({ ...gameQuery, sortOrder: order })
-                }
-              />
+              <PlatformList />
+              <SortSelector />
             </HStack>
           </Flex>
-          <GameGrid gameQuery={gameQuery} />
+          <GameGrid />
           {isBackToTopVisible && (
             <Box
               onClick={scrollToTop}

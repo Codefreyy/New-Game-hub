@@ -1,7 +1,7 @@
 import ms from "ms";
 import { useInfiniteQuery } from "react-query";
-import { GameQuery } from "../App";
 import APIClient, { FetchResponse } from "../services/apiClient";
+import useGameQueryStore from "../store";
 import { Genre } from "./useGenres";
 import { Platform } from "./usePlatforms";
 
@@ -17,13 +17,15 @@ export type Game = {
     rating_top: number;
 }
 
-const useGames = (gameQuery: GameQuery) => {
+const useGames = () => {
+    const gameQuery = useGameQueryStore(s => s.gameQuery)
+    console.log('gamequery', gameQuery)
     return useInfiniteQuery<FetchResponse<Game>>({
         queryKey: ['games', gameQuery],
         queryFn: ({ pageParam = 1 }) => apiCient.getAll({
             params: {
                 genres: gameQuery.genreId,
-                parent_platforms: gameQuery.platform,
+                parent_platforms: gameQuery.platform?.id,
                 ordering: gameQuery.sortOrder,
                 search: gameQuery.searchText,
                 page: pageParam

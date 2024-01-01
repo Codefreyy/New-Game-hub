@@ -1,21 +1,23 @@
-import { Box, SimpleGrid, Spinner } from "@chakra-ui/react"
+import { Box, SimpleGrid, Spinner, Text } from "@chakra-ui/react"
 import React from "react"
 import InfiniteScroll from "react-infinite-scroll-component"
-import { GameQuery } from "../App"
 import useGames from "../hooks/useGames"
 import GameCard from "./GameCard"
 import GameCardSkeleton from "./GameCardSkeleton"
 
-type GameGridProps = {
-  gameQuery: GameQuery
-}
-
-const GameGrid = ({ gameQuery }: GameGridProps) => {
-  const { data, isLoading, hasNextPage, fetchNextPage } = useGames(gameQuery)
+const GameGrid = () => {
+  const { data, isLoading, hasNextPage, fetchNextPage } = useGames()
 
   const fetchedGamesCount =
     data?.pages.reduce((total, page) => total + page.results.length, 0) || 0
 
+  if (data?.pages[0].count == 0) {
+    return (
+      <Text paddingLeft={5} paddingTop={5}>
+        Opps... There is No data
+      </Text>
+    )
+  }
   return (
     <InfiniteScroll
       dataLength={fetchedGamesCount}
