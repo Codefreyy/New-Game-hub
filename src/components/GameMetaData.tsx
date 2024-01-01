@@ -2,13 +2,19 @@ import { SimpleGrid, Text } from "@chakra-ui/react"
 import { Game } from "../entities"
 import CriticScore from "./CriticScore"
 import MetaItem from "./MetaItem"
+import PlatformIconList from "./PlatformIconList"
+// import PlatformIconList from "./PlatformIconList"
 
 const GameMetaData = ({ game }: { game: Game }) => {
+  const platformList = game.parent_platforms.map((item) => item.platform)
   return (
-    <SimpleGrid columns={{ sm: 2, lg: 4 }} as="dl">
+    <SimpleGrid columns={2} as="dl">
       <MetaItem term="Platforms">
-        {game.parent_platforms?.map(({ platform }) => (
-          <Text key={platform.id}>{platform.name}</Text>
+        <PlatformIconList platforms={platformList} />
+        {game.parent_platforms?.map(({ platform }, idx) => (
+          <span key={platform.id}>
+            {idx != 0 ? " | " : ""} {platform.name}
+          </span>
         ))}
       </MetaItem>
       <MetaItem term="Metascore">

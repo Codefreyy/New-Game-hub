@@ -1,4 +1,4 @@
-import { Box, Heading, Spinner } from "@chakra-ui/react"
+import { GridItem, Heading, SimpleGrid, Spinner } from "@chakra-ui/react"
 import { useParams } from "react-router-dom"
 import { ExpandableText } from "../components/ExpandableText"
 import GameMetaData from "../components/GameMetaData"
@@ -15,13 +15,17 @@ const GameDetailPage = () => {
   if (error || !game) throw error
   return (
     <>
-      <Box paddingX={20}>
-        <Heading>{game.name}</Heading>
-        <ExpandableText>{game.description_raw}</ExpandableText>
-        <GameMetaData game={game} />
-        <GameTrailer gameId={game.id} />
-        <GameScreenshots gameId={game.id} />
-      </Box>
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} paddingX={20}>
+        <GridItem>
+          <Heading>{game.name}</Heading>
+          <ExpandableText>{game.description_raw}</ExpandableText>
+          <GameMetaData game={game} />
+          <GameTrailer gameId={game.id} />
+        </GridItem>
+        <GridItem>
+          <GameScreenshots gameId={game.id} />
+        </GridItem>
+      </SimpleGrid>
     </>
   )
 }
