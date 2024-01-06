@@ -1,30 +1,29 @@
-# React + TypeScript + Vite
+<img width="1512" alt="image" src="https://github.com/Codefreyy/New-Game-hub/assets/104683968/cc57a722-b0bb-4ccd-98d9-c2c930728c68">
+<img width="1512" alt="image" src="https://github.com/Codefreyy/New-Game-hub/assets/104683968/55f6b9aa-1d93-4d88-9e23-1d6ef125a68e">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+This is a game aggregator using React.js, TypeScript, and ChakraUI
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Key Features
+1. Responsive game grid
+2. Search and filter
+3. React Query for data handling
+4. Implement form validation using Zod
+5. Zustand for state management
+6. React Router for navigation
+7. Implement infinite scrolling
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+### Cloning the repository
+```
+git clone https://github.com/AntonioErdeljac/next13-trello.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Install packages
+```
+npm i
+```
+
+### Start the app
+```
+npm run dev
+```
