@@ -15,7 +15,7 @@ This is a game aggregator using React.js, TypeScript, and ChakraUI
 
 ### Cloning the repository
 ```
-git clone https://github.com/AntonioErdeljac/next13-trello.git
+git clone https://github.com/Codefreyy/New-Game-hub.git
 ```
 
 ### Install packages
